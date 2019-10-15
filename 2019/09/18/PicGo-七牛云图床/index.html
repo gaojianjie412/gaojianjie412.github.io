@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="[TOC] 1. 前言​        写博客文章的话，有时候需要图片。搭建的github page博客，图片要么上传到github，但是怕图片过多超出使用容量，要么就是上传到图床，如果你图片不太多的话，可以直接手动上传，推荐几个图床：土豆图床、tinypic、SM.MS、catbox。这几个有的支持多张图一起上传，有的是无损的，有的可以上传敏感资源，有的上传大小有限制，具体的可以自行体会。图片太">
+<meta name="keywords" content="PicGo,七牛云">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PicGo+七牛云图床">
+<meta property="og:url" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/index.html">
+<meta property="og:site_name" content="Robby">
+<meta property="og:description" content="[TOC] 1. 前言​        写博客文章的话，有时候需要图片。搭建的github page博客，图片要么上传到github，但是怕图片过多超出使用容量，要么就是上传到图床，如果你图片不太多的话，可以直接手动上传，推荐几个图床：土豆图床、tinypic、SM.MS、catbox。这几个有的支持多张图一起上传，有的是无损的，有的可以上传敏感资源，有的上传大小有限制，具体的可以自行体会。图片太">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-21-47.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-23-13.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-25-24.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-27-20.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-27-50.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-30-00.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-30-35.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-33-35.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-34-16.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-58-51.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_20-00-17.jpg">
+<meta property="og:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-36-05.jpg">
+<meta property="og:updated_time" content="2019-10-02T08:36:32.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PicGo+七牛云图床">
+<meta name="twitter:description" content="[TOC] 1. 前言​        写博客文章的话，有时候需要图片。搭建的github page博客，图片要么上传到github，但是怕图片过多超出使用容量，要么就是上传到图床，如果你图片不太多的话，可以直接手动上传，推荐几个图床：土豆图床、tinypic、SM.MS、catbox。这几个有的支持多张图一起上传，有的是无损的，有的可以上传敏感资源，有的上传大小有限制，具体的可以自行体会。图片太">
+<meta name="twitter:image" content="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-21-47.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>PicGo+七牛云图床</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/22/利用Python进行数据分析.第二版笔记（2）/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/09/17/hexo个人博客搭建/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&text=PicGo+七牛云图床"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&is_video=false&description=PicGo+七牛云图床"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PicGo+七牛云图床&body=Check out this article: https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&name=PicGo+七牛云图床&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-前言"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-七牛云配置"><span class="toc-number">2.</span> <span class="toc-text">2. 七牛云配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-获得AccessKey和SecretKey"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 获得AccessKey和SecretKey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-获得存储空间名和存储区域"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 获得存储空间名和存储区域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-获得访问域名"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 获得访问域名</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置PicGo"><span class="toc-number">3.</span> <span class="toc-text">3. 配置PicGo</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        PicGo+七牛云图床
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Robby</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-09-18T10:53:22.000Z" itemprop="datePublished">2019-09-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/博客/">博客</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/PicGo/">PicGo</a>, <a class="tag-link" href="/tags/七牛云/">七牛云</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>[TOC]</p>
+<h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>​        写博客文章的话，有时候需要图片。搭建的github page博客，图片要么上传到github，但是怕图片过多超出使用容量，要么就是上传到图床，如果你图片不太多的话，可以直接手动上传，推荐几个图床：<a href="https://images.ac.cn/" target="_blank" rel="noopener">土豆图床</a>、<a href="http://tinypic.com/" target="_blank" rel="noopener">tinypic</a>、<a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a>、<a href="https://catbox.moe/" target="_blank" rel="noopener">catbox</a>。这几个有的支持多张图一起上传，有的是无损的，有的可以上传敏感资源，有的上传大小有限制，具体的可以自行体会。图片太多的话，使用图床工具比较方便点。刚开始使用ipic，需要付费，而且体验不太好，就换了PicGo。</p>
+<p>​        最好有自己的域名，可以去阿里云购买域名，也可以去其他网站。如果没有域名的话，七牛云的测试域名只有30天使用期限。七牛云还需要实名认证。</p>
+<h4 id="2-七牛云配置"><a href="#2-七牛云配置" class="headerlink" title="2. 七牛云配置"></a>2. 七牛云配置</h4><p>PicGo需要七牛云的四个参数：</p>
+<blockquote>
+<p>AccessKey</p>
+<p>SecretKey</p>
+<p>存储空间名</p>
+<p>访问网址</p>
+<p>存储区域</p>
+</blockquote>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-21-47.jpg" alt="七牛图床设置"></p>
+<h5 id="2-1-获得AccessKey和SecretKey"><a href="#2-1-获得AccessKey和SecretKey" class="headerlink" title="2.1 获得AccessKey和SecretKey"></a>2.1 获得AccessKey和SecretKey</h5><p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-23-13.jpg" alt></p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-25-24.jpg" alt></p>
+<h5 id="2-2-获得存储空间名和存储区域"><a href="#2-2-获得存储空间名和存储区域" class="headerlink" title="2.2 获得存储空间名和存储区域"></a>2.2 获得存储空间名和存储区域</h5><p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-27-20.jpg" alt></p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-27-50.jpg" alt></p>
+<p>我这是已经新建好的空间名，我的是qiniuyun-markdown</p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-30-00.jpg" alt></p>
+<p>1的位置就是你要填写自己的存储空间名字，假如是：qiniu-example</p>
+<p>2的位置选择离你近的位置吧</p>
+<p>存储区域：华东：z0，华北：z1，华南：z2</p>
+<h5 id="2-3-获得访问域名"><a href="#2-3-获得访问域名" class="headerlink" title="2.3 获得访问域名"></a>2.3 获得访问域名</h5><p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-30-35.jpg" alt></p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-33-35.jpg" alt></p>
+<p>上面那个是我自己的域名，下面那个是系统给的测试域名，但是只有30天期限，点击添加域名，添加你自己的。</p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-34-16.jpg" alt></p>
+<p>如果你的域名是example.com，这是一个一级域名，可以分出来很多二级域名，这个位置就可以填一个二级域名，假如是：qiniu.example.com。最后我访问域名就是<a href="http://qiniu.example.com" target="_blank" rel="noopener">http://qiniu.example.com</a></p>
+<p>然后你的域名需要进行配置CNAME，<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name" target="_blank" rel="noopener">可参考</a></p>
+<p>去你购买域名的平台进行域名解析</p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-58-51.jpg" alt></p>
+<blockquote>
+<p>记录类型：CNAME</p>
+<p>主机记录：根据上面的例子就是：qiniu.example.com</p>
+<p>解析线路：默认</p>
+<p>记录值：看下图红框，就是复制内容</p>
+<p>TTL：默认</p>
+</blockquote>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_20-00-17.jpg" alt></p>
+<p>最后看是否配置成功，看图，配置成功状态会是成功，具体可<a href="https://developer.qiniu.com/fusion/kb/5326/how-to-check-whether-the-configuration-is-successful" target="_blank" rel="noopener">参考</a></p>
+<p><img src="http://qiniu.gaojianjie.top/Xnip2019-09-18_19-36-05.jpg" alt></p>
+<h4 id="3-配置PicGo"><a href="#3-配置PicGo" class="headerlink" title="3. 配置PicGo"></a>3. 配置PicGo</h4><p>得到四个参数，就可以配置PicGo了</p>
+<blockquote>
+<p>AccessKey： x x x（你自己的）</p>
+<p>SecretKey：x x x（你自己的）</p>
+<p>存储空间名：qiniu-example</p>
+<p>访问网址：<a href="http://qiniu.example.com" target="_blank" rel="noopener">http://qiniu.example.com</a></p>
+<p>存储区域：z2</p>
+</blockquote>
+<p>配置完之后就可以上传图片了，具体PicGo使用看<a href="https://picgo.github.io/PicGo-Doc/zh/guide/" target="_blank" rel="noopener">这里</a></p>
+
+  </div>
+</article>
+
+
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments" class="blog-post-comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            visitor: true,
+            appId: 'q494NdCTA7S8AuwxLVHFxz41-MdYXbMMI',
+            appKey: 'dV8G37HkOGPbWVkPzlAUndh7',
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+            avatar: 'robohash'
+        })
+    </script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-前言"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-七牛云配置"><span class="toc-number">2.</span> <span class="toc-text">2. 七牛云配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-获得AccessKey和SecretKey"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 获得AccessKey和SecretKey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-获得存储空间名和存储区域"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 获得存储空间名和存储区域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-获得访问域名"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 获得访问域名</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置PicGo"><span class="toc-number">3.</span> <span class="toc-text">3. 配置PicGo</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&text=PicGo+七牛云图床"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&is_video=false&description=PicGo+七牛云图床"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PicGo+七牛云图床&body=Check out this article: https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&title=PicGo+七牛云图床"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2019/09/18/PicGo-七牛云图床/&name=PicGo+七牛云图床&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Robby
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+        
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-148159204-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?dbb105d46eafbe9b2400ee1886ae06d2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
