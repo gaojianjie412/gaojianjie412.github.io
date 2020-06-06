@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="[TOC] 我们的目标1.理解提供给我们的“少量”数据的少量分布2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。4.创建一个神经网络并将准确性与我们最好的分类器进行比较。5.了解不平衡数据集的常见错误。 大纲 理解我们的数据1） 收集数据  预处理1） 缩放和分布2） 切割数据   3.随">
+    <meta name="description" content="[TOC] 原文地址：https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets 我们的目标1.理解提供给我们的“少量”数据的少量分布2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。4">
 <meta name="keywords" content="kaggle,分类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kaggle_信用卡欺诈检测">
 <meta property="og:url" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/02/kaggle-信用卡欺诈检测/index.html">
 <meta property="og:site_name" content="Robby">
-<meta property="og:description" content="[TOC] 我们的目标1.理解提供给我们的“少量”数据的少量分布2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。4.创建一个神经网络并将准确性与我们最好的分类器进行比较。5.了解不平衡数据集的常见错误。 大纲 理解我们的数据1） 收集数据  预处理1） 缩放和分布2） 切割数据   3.随">
+<meta property="og:description" content="[TOC] 原文地址：https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets 我们的目标1.理解提供给我们的“少量”数据的少量分布2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。4">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://qiniu.robbyml.com/output_13_1.png">
 <meta property="og:image" content="http://qiniu.robbyml.com/output_14_0.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="http://qiniu.robbyml.com/output_81_0.png">
 <meta property="og:image" content="http://qiniu.robbyml.com/output_92_1.png">
 <meta property="og:image" content="http://qiniu.robbyml.com/output_99_1.png">
-<meta property="og:updated_time" content="2020-06-02T12:47:19.545Z">
+<meta property="og:updated_time" content="2020-06-03T12:32:08.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kaggle_信用卡欺诈检测">
-<meta name="twitter:description" content="[TOC] 我们的目标1.理解提供给我们的“少量”数据的少量分布2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。4.创建一个神经网络并将准确性与我们最好的分类器进行比较。5.了解不平衡数据集的常见错误。 大纲 理解我们的数据1） 收集数据  预处理1） 缩放和分布2） 切割数据   3.随">
+<meta name="twitter:description" content="[TOC] 原文地址：https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets 我们的目标1.理解提供给我们的“少量”数据的少量分布2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。4">
 <meta name="twitter:image" content="http://qiniu.robbyml.com/output_13_1.png">
     
     
@@ -173,22 +173,25 @@
 
   <div class="content" itemprop="articleBody">
     <p>[TOC]</p>
+<p>原文地址：<a href="https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets" target="_blank" rel="noopener">https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets</a></p>
 <h3 id="我们的目标"><a href="#我们的目标" class="headerlink" title="我们的目标"></a>我们的目标</h3><p>1.理解提供给我们的“少量”数据的少量分布<br>2.创建“欺诈”和“非欺诈”交易的50/50子数据帧比率。(NearMiss Algorithm)<br>3.确定我们将要使用的分类器，并确定哪一个具有更高的准确性。<br>4.创建一个神经网络并将准确性与我们最好的分类器进行比较。<br>5.了解不平衡数据集的常见错误。</p>
 <h3 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h3><ol>
-<li><p>理解我们的数据<br>1） 收集数据</p>
-</li>
-<li><p>预处理<br>1） 缩放和分布<br>2） 切割数据</p>
-</li>
+<li>理解我们的数据<br>1） 收集数据</li>
+<li>预处理<br>1） 缩放和分布<br>2） 切割数据</li>
+<li>随机欠采样和过采样<br> 1）分布和相关性<br> 2）异常检测<br> 3）降维和聚类（t-SNE）<br> 4）分类器<br> 5）深入研究逻辑回归<br> 6）使用SMOTE过采样 </li>
+<li>测试<br> 1）使用逻辑回归测试<br> 2）神经网络测试（欠采样VS过采样）</li>
 </ol>
-<p>3.随机欠采样和过采样<br>    1）分布和相关性<br>    2）异常检测<br>    3）降维和聚类（t-SNE）<br>    4）分类器<br>    5）深入研究逻辑回归<br>    6）使用SMOTE过采样</p>
-<p>4.测试<br>    1）使用逻辑回归测试<br>    2）神经网络测试（欠采样VS过采样）</p>
 <h3 id="从不平衡的数据集中纠正先前的错误"><a href="#从不平衡的数据集中纠正先前的错误" class="headerlink" title="从不平衡的数据集中纠正先前的错误"></a>从不平衡的数据集中纠正先前的错误</h3><ol>
 <li>切勿对过采样或欠采样的数据集进行测试</li>
 <li>如果我们要实施交叉验证，请记住在交叉验证期间而不是之前对训练数据进行过度采样或欠采样！</li>
 <li>不要将准确率得分用作不平衡数据集的度量标准（通常会很高并且容易误导），而应使用f1-score，precision/recall score或 混淆矩阵</li>
 </ol>
 <h2 id="收集数据"><a href="#收集数据" class="headerlink" title="收集数据"></a>收集数据</h2><p>我们要做的第一件事是收集数据的基本知识。请记住，除了transaction和amount，我们不知道其他列是什么（由于隐私原因）。我们唯一知道的是，那些未知的列已经被缩放。</p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>1.交易金额相对较小。所有交易金额的平均值约为88美元。<br>2.没有“Null”值，因此我们不必研究替换值的方法。<br>3.大多数交易是非欺诈（99.83％），而欺诈交易（017％）发生在数据帧中。</p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ol>
+<li>交易金额相对较小。所有交易金额的平均值约为88美元。</li>
+<li>没有“Null”值，因此我们不必研究替换值的方法。</li>
+<li>大多数交易是非欺诈（99.83％），而欺诈交易（017％）发生在数据帧中。</li>
+</ol>
 <h3 id="特征技术"><a href="#特征技术" class="headerlink" title="特征技术"></a>特征技术</h3><ol>
 <li>PCA转型：数据描述表明，所有特征都经过了PCA转换（降维技术）（时间和数量除外）。</li>
 <li>缩放：请记住，为了实现PCA转换特征，需要预先缩放。 （在这种情况下，所有V特征都已缩放，或者至少这是我们假设开发数据集的人员所做的。）</li>
@@ -704,13 +707,22 @@ memory usage: 67.4 MB</code></pre><figure class="highlight python"><table><tr><t
 Frauds: 0.17 % of the dataset</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">colors = [<span class="string">'#DF0101'</span>,<span class="string">'#0101DF'</span>]</span><br><span class="line"></span><br><span class="line">sns.countplot(<span class="string">'Class'</span>, data=df, palette=colors)</span><br><span class="line">plt.title(<span class="string">'Class Distributions \n (0: No Fraud || 1: Fraud)'</span>, fontsize=<span class="number">14</span>)</span><br></pre></td></tr></table></figure>
 
 <pre><code>Text(0.5, 1.0, &apos;Class Distributions \n (0: No Fraud || 1: Fraud)&apos;)</code></pre><p><img src="http://qiniu.robbyml.com/output_13_1.png" alt></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#sns.set(font='SimHei')</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">18</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">amount_val = df[<span class="string">'Amount'</span>].values</span><br><span class="line">time_val = df[<span class="string">'Time'</span>].values</span><br><span class="line"></span><br><span class="line">sns.distplot(amount_val, ax=ax[<span class="number">0</span>],color=<span class="string">'r'</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">'数量的趋势'</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_xlim([min(amount_val), max(amount_val)])</span><br><span class="line"><span class="comment"># 切片</span></span><br><span class="line"></span><br><span class="line">sns.distplot(time_val, ax=ax[<span class="number">1</span>], color=<span class="string">'b'</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">'时间的趋势'</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_xlim([min(time_val),max(time_val)])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#sns.set(font='SimHei')</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">18</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">amount_val = df[<span class="string">'Amount'</span>].values</span><br><span class="line">time_val = df[<span class="string">'Time'</span>].values</span><br><span class="line"><span class="comment"># 以array形式返回指定column的所有取值</span></span><br><span class="line"></span><br><span class="line">sns.distplot(amount_val, ax=ax[<span class="number">0</span>],color=<span class="string">'r'</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">'数量的趋势'</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_xlim([min(amount_val), max(amount_val)])</span><br><span class="line"><span class="comment"># 切片</span></span><br><span class="line"></span><br><span class="line">sns.distplot(time_val, ax=ax[<span class="number">1</span>], color=<span class="string">'b'</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">'时间的趋势'</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_xlim([min(time_val),max(time_val)])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <p><img src="http://qiniu.robbyml.com/output_14_0.png" alt></p>
 <h2 id="缩放和分布"><a href="#缩放和分布" class="headerlink" title="缩放和分布"></a>缩放和分布</h2><p>我们将首先缩放由Time和Amount组成的列。时间和数量应与其他列一样缩放。另一方面，我们还需要创建数据帧的子样本，<br>以使欺诈和非欺诈案件数量相等，从而帮助我们的算法更好地理解确定交易是否为欺诈行为的模式。</p>
 <p>在这种情况下，我们的子样本将是一个欺诈和非欺诈交易比率为50/50的数据框。意味着我们的子样本将具有相同数量的欺诈和非欺诈交易。</p>
-<p>为什么要创建子样本？？？？？<br>1.过拟合：我们的分类模型将设想在大多数情况下没有欺诈！我们希望我们的模型能够确定何时发生欺诈。<br>2.错的相关性：尽管我们不知道“ V”特征代表什么，无法看到’class’与特征之间的真实相关性，但了解每个特征如何通过不平衡数据帧影响结果（欺诈或无欺诈）将非常有用</p>
-<p>摘要：<br>1.scaled amount和sacled time 应该使用scaled values<br>2.我们的数据集中有492个欺诈案件，因此我们可以随机获得492个非欺诈案件来创建新的子数据dataframe。<br>3.我们合并了492个欺诈和非欺诈案例，创建了一个新的子样本。</p>
+<p>为什么要创建子样本？？？？？</p>
+<ol>
+<li>过拟合：我们的分类模型将设想在大多数情况下没有欺诈！我们希望我们的模型能够确定何时发生欺诈。</li>
+<li>错的相关性：尽管我们不知道“ V”特征代表什么，无法看到’class’与特征之间的真实相关性，但了解每个特征如何通过不平衡数据帧影响结果（欺诈或无欺诈）将非常有用</li>
+</ol>
+<p>摘要：</p>
+<ol>
+<li>scaled amount和sacled time 应该使用scaled values</li>
+<li>我们的数据集中有492个欺诈案件，因此我们可以随机获得492个非欺诈案件来创建新的子数据dataframe。</li>
+<li>我们合并了492个欺诈和非欺诈案例，创建了一个新的子样本。</li>
+</ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 缩放数据</span></span><br><span class="line"><span class="comment"># StandardScaler 去均值和方差归一化</span></span><br><span class="line"><span class="comment"># robustscaler 数据中异常值，均差和方差标准化不好，使用这个</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler, RobustScaler</span><br><span class="line"></span><br><span class="line">std_scaler = StandardScaler()</span><br><span class="line">rob_scaler = RobustScaler()</span><br><span class="line"></span><br><span class="line">df[<span class="string">'scaled_amount'</span>] = rob_scaler.fit_transform(df[<span class="string">'Amount'</span>].values.reshape(<span class="number">-1</span>,<span class="number">1</span>))</span><br><span class="line">df[<span class="string">'scaled_time'</span>] = rob_scaler.fit_transform(df[<span class="string">'Time'</span>].values.reshape(<span class="number">-1</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">df.drop([<span class="string">'Time'</span>,<span class="string">'Amount'</span>],axis=<span class="number">1</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># axis=0代表往跨行（down)，而axis=1代表跨列（across)</span></span><br><span class="line"><span class="comment"># 第0轴沿着行的垂直往下，第1轴沿着列的方向水平延伸。</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scaled_amount = df[<span class="string">'scaled_amount'</span>]</span><br><span class="line">scaled_time = df[<span class="string">'scaled_time'</span>]</span><br><span class="line"></span><br><span class="line">df.drop([<span class="string">'scaled_amount'</span>, <span class="string">'scaled_time'</span>], axis=<span class="number">1</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">df.insert(<span class="number">0</span>, <span class="string">'scaled_amount'</span>, scaled_amount)</span><br><span class="line">df.insert(<span class="number">1</span>, <span class="string">'scaled_time'</span>, scaled_time)</span><br><span class="line"></span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
@@ -902,7 +914,11 @@ Train: [     0      1      2 ... 227866 227867 227868] Test: [212516 212644 2130
 [0.99827076 0.00172924]
 [0.99827952 0.00172048]</code></pre><h2 id="随机欠采样"><a href="#随机欠采样" class="headerlink" title="随机欠采样"></a>随机欠采样</h2><p>我们将实施“随机抽样”，该过程主要包括删除数据，以使数据集更加平衡，从而避免模型过度拟合。</p>
 <p>###步骤：</p>
-<p>1.我们要做的第一件事是定义class的不平衡程度（在class列上使用“ value_counts（）”来确定每个标签的数量）<br>2.一旦确定了多少个实例被视为欺诈交易（Fraud =“ 1”），我们就应将非欺诈交易的数量与欺诈交易的数量相同（假设我们想要50/50的比率），<br>这将等于492欺诈案件和492个非欺诈交易案件。<br>3.实施此技术后，关于class我们的数据帧有一个子样本，该子样本的比率为50/50。然后，我们将实现的下一步是重新整理数据，<br>以查看每次运行此脚本时我们的模型是否都能保持一定的准确性。</p>
+<ol>
+<li>我们要做的第一件事是定义class的不平衡程度（在class列上使用“ value_counts（）”来确定每个标签的数量）\</li>
+<li>一旦确定了多少个实例被视为欺诈交易（Fraud =“ 1”），我们就应将非欺诈交易的数量与欺诈交易的数量相同（假设我们想要50/50的比率），<br>这将等于492欺诈案件和492个非欺诈交易案件。</li>
+<li>实施此技术后，关于class我们的数据帧有一个子样本，该子样本的比率为50/50。然后，我们将实现的下一步是重新整理数据，以查看每次运行此脚本时我们的模型是否都能保持一定的准确性。</li>
+</ol>
 <p>###提示：</p>
 <p>“随机欠采样”的主要问题是，由于存在大量信息丢失，我们冒着分类模型无法像我们想要的那样准确运行的风险<br>（从284315个非欺诈交易中带来了492个非欺诈交易）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于‘Class’高度偏斜，因此我们应该使它们等效，以使其具有正态分布</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们在创建子样本之前先对数据进行混洗</span></span><br><span class="line"><span class="comment"># DataFrame.sample(n=None, frac=None, replace=False, weights=None, random_state=None, axis=None)</span></span><br><span class="line"><span class="comment"># n是要抽取的行数。（例如n=20000时，抽取其中的2W行）</span></span><br><span class="line"><span class="comment">#frac是抽取的比例。（有一些时候，我们并对具体抽取的行数不关系，我们想抽取其中的百分比，这个时候就可以选择使用frac，例如frac=0.8，就是抽取其中80%）</span></span><br><span class="line"><span class="comment">#replace：是否为有放回抽样，取replace=True时为有放回抽样。</span></span><br><span class="line"><span class="comment">#weights这个是每个样本的权重，具体可以看官方文档说明。</span></span><br><span class="line"><span class="comment"># random_state 随机数发生器种子，random_state=None取得数据不重复，random_state=1可以取得重复数据</span></span><br><span class="line"><span class="comment">#axis是选择抽取数据的行还是列。axis=0的时是抽取行，axis=1时是抽取列（也就是说axis=1时，在列中随机抽取n列，在axis=0时，在行中随机抽取n行）</span></span><br><span class="line">df = df.sample(frac=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 欺诈class数量492行</span></span><br><span class="line">fraud_df = df.loc[df[<span class="string">'Class'</span>]==<span class="number">1</span>]</span><br><span class="line">non_fraud_df = df.loc[df[<span class="string">'Class'</span>]==<span class="number">0</span>][:<span class="number">492</span>]</span><br><span class="line"></span><br><span class="line">normal_distributed_df = pd.concat([fraud_df, non_fraud_df])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新整理dataframe行</span></span><br><span class="line">new_df = normal_distributed_df.sample(frac=<span class="number">1</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">new_df.head()</span><br></pre></td></tr></table></figure>
