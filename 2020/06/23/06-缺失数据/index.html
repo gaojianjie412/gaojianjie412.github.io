@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="[TOC] 12import numpy as npimport pandas as pd  12df = pd.read_csv(&apos;data/table_missing.csv&apos;)df.head()        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }   .dataframe tbo">
+<meta name="keywords" content="Robby,data analysis,Data mining,deep learning,machine learning,nlp,Visual processing,statistics,Linear algebra,programmer,Open source,Developer,Geeks,Coder">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06_缺失数据">
+<meta property="og:url" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/index.html">
+<meta property="og:site_name" content="Robby">
+<meta property="og:description" content="[TOC] 12import numpy as npimport pandas as pd  12df = pd.read_csv(&apos;data/table_missing.csv&apos;)df.head()        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }   .dataframe tbo">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_127_2.png">
+<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_129_1.png">
+<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_131_1.png">
+<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_133_1.png">
+<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_134_1.png">
+<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_136_1.png">
+<meta property="og:updated_time" content="2020-06-23T15:00:26.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="06_缺失数据">
+<meta name="twitter:description" content="[TOC] 12import numpy as npimport pandas as pd  12df = pd.read_csv(&apos;data/table_missing.csv&apos;)df.head()        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }   .dataframe tbo">
+<meta name="twitter:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_127_2.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>06_缺失数据</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/06/06/机器学习常用算法/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&text=06_缺失数据"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&is_video=false&description=06_缺失数据"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=06_缺失数据&body=Check out this article: https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&name=06_缺失数据&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、缺失观测及其类型"><span class="toc-number">1.</span> <span class="toc-text">一、缺失观测及其类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-了解缺失信息"><span class="toc-number">1.1.</span> <span class="toc-text">1. 了解缺失信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-isna和notna方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">(a) isna和notna方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-查看缺失值所在行"><span class="toc-number">1.1.2.</span> <span class="toc-text">(b)查看缺失值所在行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-挑出所有非缺失值列"><span class="toc-number">1.1.3.</span> <span class="toc-text">(c) 挑出所有非缺失值列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种缺失符号"><span class="toc-number">1.2.</span> <span class="toc-text">2. 三种缺失符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-np-nan"><span class="toc-number">1.2.1.</span> <span class="toc-text">(a) np.nan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-None"><span class="toc-number">1.2.2.</span> <span class="toc-text">(b) None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-NaT"><span class="toc-number">1.2.3.</span> <span class="toc-text">(c) NaT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nullable类型与NA符号"><span class="toc-number">1.3.</span> <span class="toc-text">3.Nullable类型与NA符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-Nullable整型"><span class="toc-number">1.3.1.</span> <span class="toc-text">(a)Nullable整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Nullable布尔"><span class="toc-number">1.3.2.</span> <span class="toc-text">(b) Nullable布尔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-string类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">(c) string类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NA的特性"><span class="toc-number">1.4.</span> <span class="toc-text">4. NA的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-逻辑运算"><span class="toc-number">1.4.1.</span> <span class="toc-text">(a)逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-算术运算和比较运算"><span class="toc-number">1.4.2.</span> <span class="toc-text">(b)算术运算和比较运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-convert-dtypes方法"><span class="toc-number">1.5.</span> <span class="toc-text">5. convert_dtypes方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、缺失数据的运算与分组"><span class="toc-number">2.</span> <span class="toc-text">二、缺失数据的运算与分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-加号与乘号规则"><span class="toc-number">2.1.</span> <span class="toc-text">1.加号与乘号规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-groupby方法中的缺失值"><span class="toc-number">2.2.</span> <span class="toc-text">2. groupby方法中的缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、填充与剔除"><span class="toc-number">3.</span> <span class="toc-text">三、填充与剔除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-fillna方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. fillna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><span class="toc-number">3.1.1.</span> <span class="toc-text">(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-填充中的对齐特性"><span class="toc-number">3.1.2.</span> <span class="toc-text">(b) 填充中的对齐特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropna方法"><span class="toc-number">3.2.</span> <span class="toc-text">2. dropna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-axis参数"><span class="toc-number">3.2.1.</span> <span class="toc-text">(a)axis参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><span class="toc-number">3.2.2.</span> <span class="toc-text">b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-subset参数（在某一组列范围中搜索缺失值）"><span class="toc-number">3.2.3.</span> <span class="toc-text">(c) subset参数（在某一组列范围中搜索缺失值）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、插值（interpolation"><span class="toc-number">4.</span> <span class="toc-text">四、插值（interpolation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性插值"><span class="toc-number">4.1.</span> <span class="toc-text">1. 线性插值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（a-索引无关的线性插值"><span class="toc-number">4.1.1.</span> <span class="toc-text">（a)索引无关的线性插值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-与索引有关的的插值"><span class="toc-number">4.1.2.</span> <span class="toc-text">(b) 与索引有关的的插值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高级插值方法"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高级插值方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-interpolate中的限制参数"><span class="toc-number">4.3.</span> <span class="toc-text">3. interpolate中的限制参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-limit表示最多插入多少个"><span class="toc-number">4.3.1.</span> <span class="toc-text">(a) limit表示最多插入多少个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><span class="toc-number">4.3.2.</span> <span class="toc-text">(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        06_缺失数据
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Robby</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-06-23T14:52:00.000Z" itemprop="datePublished">2020-06-23</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>[TOC]</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/table_missing.csv'</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>NaN</td>
+      <td>M</td>
+      <td>street_1</td>
+      <td>173</td>
+      <td>NaN</td>
+      <td>34.0</td>
+      <td>A+</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>NaN</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>192</td>
+      <td>NaN</td>
+      <td>32.5</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>1103.0</td>
+      <td>M</td>
+      <td>street_2</td>
+      <td>186</td>
+      <td>NaN</td>
+      <td>87.2</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>S_1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>167</td>
+      <td>81.0</td>
+      <td>80.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>1105.0</td>
+      <td>NaN</td>
+      <td>street_4</td>
+      <td>159</td>
+      <td>64.0</td>
+      <td>84.8</td>
+      <td>A-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h2 id="一、缺失观测及其类型"><a href="#一、缺失观测及其类型" class="headerlink" title="一、缺失观测及其类型"></a>一、缺失观测及其类型</h2><h3 id="1-了解缺失信息"><a href="#1-了解缺失信息" class="headerlink" title="1. 了解缺失信息"></a>1. 了解缺失信息</h3><h4 id="a-isna和notna方法"><a href="#a-isna和notna方法" class="headerlink" title="(a) isna和notna方法"></a>(a) isna和notna方法</h4><p>对Series使用会返回布尔列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Physics'</span>].isna().head()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+1    False
+2    False
+3     True
+4    False
+Name: Physics, dtype: bool</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Physics'</span>].notna().head()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     True
+1     True
+2     True
+3    False
+4     True
+Name: Physics, dtype: bool</code></pre><p><strong>对DataFrame使用会返回布尔表</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.isna().head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.notna().head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p><strong>但对于DataFrame我们更关心到底每列有多少缺失值</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.isna().sum()</span><br></pre></td></tr></table></figure>
+
+<pre><code>School      0
+Class       4
+ID          6
+Gender      7
+Address     0
+Height      0
+Weight     13
+Math        5
+Physics     4
+dtype: int64</code></pre><p><strong>此外通过info函数也可以查看缺失信息</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+RangeIndex: 35 entries, 0 to 34
+Data columns (total 9 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   School   35 non-null     object 
+ 1   Class    31 non-null     object 
+ 2   ID       29 non-null     float64
+ 3   Gender   28 non-null     object 
+ 4   Address  35 non-null     object 
+ 5   Height   35 non-null     int64  
+ 6   Weight   22 non-null     float64
+ 7   Math     30 non-null     float64
+ 8   Physics  31 non-null     object 
+dtypes: float64(3), int64(1), object(5)
+memory usage: 2.6+ KB</code></pre><h4 id="b-查看缺失值所在行"><a href="#b-查看缺失值所在行" class="headerlink" title="(b)查看缺失值所在行"></a>(b)查看缺失值所在行</h4><p><strong>以最后一列为例，挑出该列缺失值的行</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'Physics'</span>].isna()]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>S_1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>167</td>
+      <td>81.0</td>
+      <td>80.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>S_1</td>
+      <td>C_2</td>
+      <td>1204.0</td>
+      <td>F</td>
+      <td>street_5</td>
+      <td>162</td>
+      <td>63.0</td>
+      <td>33.8</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>S_1</td>
+      <td>C_3</td>
+      <td>1304.0</td>
+      <td>NaN</td>
+      <td>street_2</td>
+      <td>195</td>
+      <td>70.0</td>
+      <td>85.2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>S_2</td>
+      <td>C_2</td>
+      <td>2203.0</td>
+      <td>M</td>
+      <td>street_4</td>
+      <td>155</td>
+      <td>91.0</td>
+      <td>73.8</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="c-挑出所有非缺失值列"><a href="#c-挑出所有非缺失值列" class="headerlink" title="(c) 挑出所有非缺失值列"></a>(c) 挑出所有非缺失值列</h4><p><strong>使用all就是全部非缺失值，如果是any就是至少有一个不是缺失值</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df[df.notna().all(<span class="number">1</span>)]</span><br><span class="line"><span class="comment"># all 指出应减少的轴。</span></span><br><span class="line"><span class="comment"># 0 /'index'：减少索引，返回其索引为原始列标签的Series。</span></span><br><span class="line"><span class="comment"># 1 /'columns'：减少列，返回其索引为原始索引的Series。</span></span><br><span class="line"><span class="comment"># 无：减少所有轴，返回标量。</span></span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>S_1</td>
+      <td>C_2</td>
+      <td>1201.0</td>
+      <td>M</td>
+      <td>street_5</td>
+      <td>159</td>
+      <td>68.0</td>
+      <td>97.0</td>
+      <td>A-</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>S_1</td>
+      <td>C_2</td>
+      <td>1202.0</td>
+      <td>F</td>
+      <td>street_4</td>
+      <td>176</td>
+      <td>94.0</td>
+      <td>63.5</td>
+      <td>B-</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>S_1</td>
+      <td>C_3</td>
+      <td>1303.0</td>
+      <td>M</td>
+      <td>street_7</td>
+      <td>188</td>
+      <td>82.0</td>
+      <td>49.7</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>S_2</td>
+      <td>C_1</td>
+      <td>2103.0</td>
+      <td>M</td>
+      <td>street_4</td>
+      <td>157</td>
+      <td>61.0</td>
+      <td>52.5</td>
+      <td>B-</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>S_2</td>
+      <td>C_2</td>
+      <td>2202.0</td>
+      <td>F</td>
+      <td>street_7</td>
+      <td>194</td>
+      <td>77.0</td>
+      <td>68.5</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>S_2</td>
+      <td>C_3</td>
+      <td>2301.0</td>
+      <td>F</td>
+      <td>street_4</td>
+      <td>157</td>
+      <td>78.0</td>
+      <td>72.3</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>S_2</td>
+      <td>C_3</td>
+      <td>2303.0</td>
+      <td>F</td>
+      <td>street_7</td>
+      <td>190</td>
+      <td>99.0</td>
+      <td>65.9</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>S_2</td>
+      <td>C_3</td>
+      <td>2304.0</td>
+      <td>F</td>
+      <td>street_6</td>
+      <td>164</td>
+      <td>81.0</td>
+      <td>95.5</td>
+      <td>A-</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>S_2</td>
+      <td>C_3</td>
+      <td>2305.0</td>
+      <td>M</td>
+      <td>street_4</td>
+      <td>187</td>
+      <td>73.0</td>
+      <td>48.9</td>
+      <td>B</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h3 id="2-三种缺失符号"><a href="#2-三种缺失符号" class="headerlink" title="2. 三种缺失符号"></a>2. 三种缺失符号</h3><h4 id="a-np-nan"><a href="#a-np-nan" class="headerlink" title="(a) np.nan"></a>(a) np.nan</h4><p>np.nan是一个麻烦的东西，首先它不等于任何东西，甚至不等于自己</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.nan == np.nan</span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.nan == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.nan == <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.nan == <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><p><strong>在使用equals函数比较时，自动略过两侧全是np.nan的单元格，因此结果不会影响</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.equals(df)</span><br><span class="line"><span class="comment"># equals 测试两个对象是否包含相同的元素</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><p><strong>其次，它在numpy中的类型为浮点，由此导致数据集读入时，即使原来是整数的列，只要有缺失值就会变为浮点型</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(np.nan)</span><br></pre></td></tr></table></figure>
+
+<pre><code>float</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).dtype</span><br></pre></td></tr></table></figure>
+
+<pre><code>dtype(&apos;int64&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">1</span>,np.nan,<span class="number">3</span>]).dtype</span><br></pre></td></tr></table></figure>
+
+<pre><code>dtype(&apos;float64&apos;)</code></pre><p><strong>此外，对于布尔类型的列表，如果是np.nan填充，那么它的值会自动变成为True而不是False</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">1</span>,np.nan,<span class="number">3</span>],dtype=<span class="string">'bool'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    True
+1    True
+2    True
+dtype: bool</code></pre><p><strong>但当修改一个布尔列表时，会改变列表类型，而不是赋值为True</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="literal">True</span>,<span class="literal">False</span>],dtype=<span class="string">'bool'</span>)</span><br><span class="line">s[<span class="number">1</span>] = np.nan</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1.0
+1    NaN
+dtype: float64</code></pre><p><strong>在所有的表格读取后，无论列是存放什么类型的数据，默认的缺失值全为np.nan类型</strong></p>
+<p><strong>因此整型列转为浮点；而字符由于无法转化为浮点，因此只能归并为object类型(‘o’)，原来是浮点型的则类型不变</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'ID'</span>].dtype</span><br></pre></td></tr></table></figure>
+
+<pre><code>dtype(&apos;float64&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Math'</span>].dtype</span><br></pre></td></tr></table></figure>
+
+<pre><code>dtype(&apos;float64&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Class'</span>].dtype</span><br></pre></td></tr></table></figure>
+
+<pre><code>dtype(&apos;O&apos;)</code></pre><h4 id="b-None"><a href="#b-None" class="headerlink" title="(b) None"></a>(b) None</h4><p>None比前者稍微好些，至少它会等于自身</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">None</span> == <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><p><strong>它的布尔值为False</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="literal">None</span>],dtype=<span class="string">'bool'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+dtype: bool</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([np.nan],dtype=<span class="string">'bool'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    True
+dtype: bool</code></pre><p><strong>修改布尔列表不会改变数据类型</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="literal">True</span>,<span class="literal">False</span>],dtype=<span class="string">'bool'</span>)</span><br><span class="line">s[<span class="number">0</span>] = <span class="literal">None</span></span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+1    False
+dtype: bool</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">0</span>],dtype=<span class="string">'bool'</span>)</span><br><span class="line">s[<span class="number">0</span>] = <span class="literal">None</span></span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+1    False
+dtype: bool</code></pre><p><strong>在传入数值类型后，会自动变为np.nan</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(pd.Series([<span class="number">1</span>,<span class="literal">None</span>])[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>numpy.float64</code></pre><p><strong>只有当传入object类型是保持不动，几乎可以认为，除非人工命名None，它基本上不会自动出现Pandas中</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(pd.Series([<span class="number">1</span>,<span class="literal">None</span>],dtype=<span class="string">'object'</span>)[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>NoneType</code></pre><p><strong>在使用equals函数时不会被略过，因此下面的情况下返回False</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="literal">None</span>]).equals(pd.Series([np.nan]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><h4 id="c-NaT"><a href="#c-NaT" class="headerlink" title="(c) NaT"></a>(c) NaT</h4><p><strong>NaT是针对时间序列的缺失值，是Pandas的内置类型，可以完全看做时序版本的np.nan，与自己不等，且使用equals是也会被跳过</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_time = pd.Series([pd.Timestamp(<span class="string">'20120101'</span>)]*<span class="number">5</span>)</span><br><span class="line">s_time</span><br></pre></td></tr></table></figure>
+
+<pre><code>0   2012-01-01
+1   2012-01-01
+2   2012-01-01
+3   2012-01-01
+4   2012-01-01
+dtype: datetime64[ns]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_time[<span class="number">2</span>] = np.nan</span><br><span class="line">s_time</span><br></pre></td></tr></table></figure>
+
+<pre><code>0   2012-01-01
+1   2012-01-01
+2          NaT
+3   2012-01-01
+4   2012-01-01
+dtype: datetime64[ns]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_time[<span class="number">2</span>] = <span class="literal">None</span></span><br><span class="line">s_time</span><br></pre></td></tr></table></figure>
+
+<pre><code>0   2012-01-01
+1   2012-01-01
+2          NaT
+3   2012-01-01
+4   2012-01-01
+dtype: datetime64[ns]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_time[<span class="number">2</span>] = pd.NaT</span><br><span class="line">s_time</span><br></pre></td></tr></table></figure>
+
+<pre><code>0   2012-01-01
+1   2012-01-01
+2          NaT
+3   2012-01-01
+4   2012-01-01
+dtype: datetime64[ns]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(s_time[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>pandas._libs.tslibs.nattype.NaTType</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_time[<span class="number">2</span>] == s_time[<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_time.equals(s_time)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="literal">True</span>,<span class="literal">False</span>],dtype=<span class="string">'bool'</span>)</span><br><span class="line">s[<span class="number">1</span>] = pd.NaT</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    True
+1    True
+dtype: bool</code></pre><h3 id="3-Nullable类型与NA符号"><a href="#3-Nullable类型与NA符号" class="headerlink" title="3.Nullable类型与NA符号"></a>3.Nullable类型与NA符号</h3><p><strong>这是Pandas在1.0版本中国引入的重大改变，目的是为了解决之前出现的混乱局面，统一缺失值处理方法</strong><br><strong>官方鼓励用户使用新的数据类型和缺失类型pd.NA</strong></p>
+<h4 id="a-Nullable整型"><a href="#a-Nullable整型" class="headerlink" title="(a)Nullable整型"></a>(a)Nullable整型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_original = pd.Series([<span class="number">1</span>,<span class="number">2</span>], dtype=<span class="string">'int64'</span>)</span><br><span class="line">s_original</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1
+1    2
+dtype: int64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_new = pd.Series([<span class="number">1</span>,<span class="number">2</span>], dtype=<span class="string">'Int64'</span>)</span><br><span class="line">s_new</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1
+1    2
+dtype: Int64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_original[<span class="number">1</span>] = np.nan</span><br><span class="line">s_original</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1.0
+1    NaN
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_new[<span class="number">1</span>] = np.nan</span><br><span class="line">s_new</span><br></pre></td></tr></table></figure>
+
+<pre><code>0       1
+1    &lt;NA&gt;
+dtype: Int64</code></pre><h4 id="b-Nullable布尔"><a href="#b-Nullable布尔" class="headerlink" title="(b) Nullable布尔"></a>(b) Nullable布尔</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_original = pd.Series([<span class="number">1</span>,<span class="number">0</span>], dtype=<span class="string">'bool'</span>)</span><br><span class="line">s_original</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     True
+1    False
+dtype: bool</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_new = pd.Series([<span class="number">1</span>,<span class="number">0</span>], dtype=<span class="string">'boolean'</span>)</span><br><span class="line">s_new</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     True
+1    False
+dtype: boolean</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_original[<span class="number">0</span>] = np.nan</span><br><span class="line">s_original</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    NaN
+1    0.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s_original = pd.Series([<span class="number">1</span>,<span class="number">0</span>], dtype=<span class="string">'bool'</span>)<span class="comment"># 前面改变了bool类型，重新赋值</span></span><br><span class="line">s_original[<span class="number">0</span>] = <span class="literal">None</span></span><br><span class="line">s_original</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+1    False
+dtype: bool</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_new[<span class="number">0</span>] = np.nan</span><br><span class="line">s_new</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     &lt;NA&gt;
+1    False
+dtype: boolean</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_new[<span class="number">0</span>] = <span class="literal">None</span></span><br><span class="line">s_new</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     &lt;NA&gt;
+1    False
+dtype: boolean</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_new[<span class="number">0</span>] = pd.NaT</span><br><span class="line">s_new</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     &lt;NA&gt;
+1    False
+dtype: boolean</code></pre><h4 id="c-string类型"><a href="#c-string类型" class="headerlink" title="(c) string类型"></a>(c) string类型</h4><p>为了区分开object类型，本质上也属于Nullable类型，并不会因为含有缺失值而改变类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="string">'dog'</span>,<span class="string">'cat'</span>], dtype=<span class="string">'string'</span>)</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    dog
+1    cat
+dtype: string</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s[<span class="number">0</span>] = np.nan</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    &lt;NA&gt;
+1     cat
+dtype: string</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s[<span class="number">0</span>] = <span class="literal">None</span></span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    &lt;NA&gt;
+1     cat
+dtype: string</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s[<span class="number">0</span>] = pd.NaT</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    &lt;NA&gt;
+1     cat
+dtype: string</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="string">'a'</span>,<span class="literal">None</span>,<span class="string">'b'</span>],dtype=<span class="string">'string'</span>)</span><br><span class="line">s.str.count(<span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0       1
+1    &lt;NA&gt;
+2       0
+dtype: Int64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s2 = pd.Series([<span class="string">'a'</span>,<span class="literal">None</span>,<span class="string">'b'</span>],dtype=<span class="string">'object'</span>)</span><br><span class="line">s2.str.count(<span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1.0
+1    NaN
+2    0.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.str.isdigit()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+1     &lt;NA&gt;
+2    False
+dtype: boolean</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s2.str.isdigit()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    False
+1     None
+2    False
+dtype: object</code></pre><h3 id="4-NA的特性"><a href="#4-NA的特性" class="headerlink" title="4. NA的特性"></a>4. NA的特性</h3><h4 id="a-逻辑运算"><a href="#a-逻辑运算" class="headerlink" title="(a)逻辑运算"></a>(a)逻辑运算</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span> | pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.NA | <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>True</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span> | pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span> &amp; pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>False</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">True</span> &amp; pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><h4 id="b-算术运算和比较运算"><a href="#b-算术运算和比较运算" class="headerlink" title="(b)算术运算和比较运算"></a>(b)算术运算和比较运算</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.NA ** <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>1</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> ** pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>1</code></pre><p>其他情况：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.NA + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span> * pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.NA == pd.NA</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.NA &lt; <span class="number">2.5</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.log(pd.NA)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.add(pd.NA,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;NA&gt;</code></pre><h3 id="5-convert-dtypes方法"><a href="#5-convert-dtypes方法" class="headerlink" title="5. convert_dtypes方法"></a>5. convert_dtypes方法</h3><p>这个函数功能往往就是在读取数据时，就把数据列转为Nullable类型，是1.0的新函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">'data/table_missing.csv'</span>).dtypes</span><br></pre></td></tr></table></figure>
+
+<pre><code>School      object
+Class       object
+ID         float64
+Gender      object
+Address     object
+Height       int64
+Weight     float64
+Math       float64
+Physics     object
+dtype: object</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">'data/table_missing.csv'</span>).convert_dtypes().dtypes</span><br></pre></td></tr></table></figure>
+
+<pre><code>School      string
+Class       string
+ID           Int64
+Gender      string
+Address     string
+Height       Int64
+Weight       Int64
+Math       float64
+Physics     string
+dtype: object</code></pre><h2 id="二、缺失数据的运算与分组"><a href="#二、缺失数据的运算与分组" class="headerlink" title="二、缺失数据的运算与分组"></a>二、缺失数据的运算与分组</h2><h3 id="1-加号与乘号规则"><a href="#1-加号与乘号规则" class="headerlink" title="1.加号与乘号规则"></a>1.加号与乘号规则</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">2</span>,<span class="number">3</span>,np.nan,<span class="number">4</span>])</span><br><span class="line">s.sum()</span><br></pre></td></tr></table></figure>
+
+<pre><code>9.0</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.prod()</span><br></pre></td></tr></table></figure>
+
+<pre><code>24.0</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.cumsum()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    2.0
+1    5.0
+2    NaN
+3    9.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.cumprod()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     2.0
+1     6.0
+2     NaN
+3    24.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s.pct_change()</span><br><span class="line"><span class="comment"># 当前元素与先前元素之间的百分比变化。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认情况下，计算与前一行的百分比变化。这在比较元素时间序列中的变化百分比时很有用。</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>0         NaN
+1    0.500000
+2    0.000000
+3    0.333333
+dtype: float64</code></pre><h3 id="2-groupby方法中的缺失值"><a href="#2-groupby方法中的缺失值" class="headerlink" title="2. groupby方法中的缺失值"></a>2. groupby方法中的缺失值</h3><p>自动忽略为缺失值的组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_g = pd.DataFrame(&#123;<span class="string">'one'</span>:[<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,np.nan],<span class="string">'two'</span>:np.random.randn(<span class="number">5</span>)&#125;)</span><br><span class="line">df_g</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>-0.857219</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>-0.546204</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>-0.760901</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>1.510842</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>-0.218617</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_g.groupby(<span class="string">'one'</span>).groups</span><br></pre></td></tr></table></figure>
+
+<pre><code>{&apos;A&apos;: Int64Index([0], dtype=&apos;int64&apos;),
+ &apos;B&apos;: Int64Index([1], dtype=&apos;int64&apos;),
+ &apos;C&apos;: Int64Index([2], dtype=&apos;int64&apos;),
+ &apos;D&apos;: Int64Index([3], dtype=&apos;int64&apos;)}</code></pre><h2 id="三、填充与剔除"><a href="#三、填充与剔除" class="headerlink" title="三、填充与剔除"></a>三、填充与剔除</h2><h3 id="1-fillna方法"><a href="#1-fillna方法" class="headerlink" title="1. fillna方法"></a>1. fillna方法</h3><h4 id="a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><a href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）" class="headerlink" title="(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）"></a>(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Physics'</span>].fillna(<span class="string">'missing'</span>).head()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0         A+
+1         B+
+2         B+
+3    missing
+4         A-
+Name: Physics, dtype: object</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Physics'</span>].fillna(method=<span class="string">'ffill'</span>).head()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    A+
+1    B+
+2    B+
+3    B+
+4    A-
+Name: Physics, dtype: object</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Physics'</span>].fillna(method=<span class="string">'bfill'</span>).head()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    A+
+1    B+
+2    B+
+3    A-
+4    A-
+Name: Physics, dtype: object</code></pre><h4 id="b-填充中的对齐特性"><a href="#b-填充中的对齐特性" class="headerlink" title="(b) 填充中的对齐特性"></a>(b) 填充中的对齐特性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_f = pd.DataFrame(&#123;<span class="string">'A'</span>:[<span class="number">1</span>,<span class="number">3</span>,np.nan],<span class="string">'B'</span>:[<span class="number">2</span>,<span class="number">4</span>,np.nan],<span class="string">'C'</span>:[<span class="number">3</span>,<span class="number">5</span>,np.nan]&#125;)</span><br><span class="line">df_f.fillna(df_f.mean())</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_f.fillna(df_f.mean()[[<span class="string">'A'</span>,<span class="string">'B'</span>]])</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h3 id="2-dropna方法"><a href="#2-dropna方法" class="headerlink" title="2. dropna方法"></a>2. dropna方法</h3><h4 id="a-axis参数"><a href="#a-axis参数" class="headerlink" title="(a)axis参数"></a>(a)axis参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_d = pd.DataFrame(&#123;<span class="string">'A'</span>:[np.nan,np.nan,np.nan],<span class="string">'B'</span>:[np.nan,<span class="number">3</span>,<span class="number">2</span>],<span class="string">'C'</span>:[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]&#125;)</span><br><span class="line">df_d</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_d.dropna(axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_d.dropna(axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><a href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）" class="headerlink" title="b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"></a>b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_d.dropna(axis=<span class="number">1</span>,how=<span class="string">'all'</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_d.dropna(axis=<span class="number">1</span>,how=<span class="string">'any'</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="c-subset参数（在某一组列范围中搜索缺失值）"><a href="#c-subset参数（在某一组列范围中搜索缺失值）" class="headerlink" title="(c) subset参数（在某一组列范围中搜索缺失值）"></a>(c) subset参数（在某一组列范围中搜索缺失值）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_d.dropna(axis=<span class="number">0</span>,subset=[<span class="string">'B'</span>,<span class="string">'C'</span>])</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h2 id="四、插值（interpolation"><a href="#四、插值（interpolation" class="headerlink" title="四、插值（interpolation)"></a>四、插值（interpolation)</h2><h3 id="1-线性插值"><a href="#1-线性插值" class="headerlink" title="1. 线性插值"></a>1. 线性插值</h3><p>默认状态，对缺失值进行线性插值</p>
+<h4 id="（a-索引无关的线性插值"><a href="#（a-索引无关的线性插值" class="headerlink" title="（a)索引无关的线性插值"></a>（a)索引无关的线性插值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">-5</span>,<span class="number">-2</span>,np.nan,np.nan,<span class="number">28</span>])</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     1.0
+1    10.0
+2    15.0
+3    -5.0
+4    -2.0
+5     NaN
+6     NaN
+7    28.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0     1.0
+1    10.0
+2    15.0
+3    -5.0
+4    -2.0
+5     8.0
+6    18.0
+7    28.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate().plot()</span><br></pre></td></tr></table></figure>
+
+<pre><code>Bad key &quot;text.kerning_factor&quot; on line 4 in
+/Users/gaojianjie/opt/anaconda3/envs/analysis/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test_patch.mplstyle.
+You probably need to get an updated matplotlibrc file from
+https://github.com/matplotlib/matplotlib/blob/v3.1.3/matplotlibrc.template
+or from the matplotlib source distribution
+
+
+
+
+
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf89388490&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_127_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.index = np.sort(np.random.randint(<span class="number">50</span>,<span class="number">300</span>,<span class="number">8</span>))</span><br><span class="line">s.interpolate()</span><br><span class="line"><span class="comment"># 值不变</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>83      1.0
+156    10.0
+160    15.0
+165    -5.0
+202    -2.0
+215     8.0
+256    18.0
+288    28.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate().plot()</span><br><span class="line"><span class="comment"># 后面三个点不是线性的（如果几乎为现象函数，请重新运行上面的一个代码块，这是随机性导致的）</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a173fd0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_129_1.png" alt="png"></p>
+<h4 id="b-与索引有关的的插值"><a href="#b-与索引有关的的插值" class="headerlink" title="(b) 与索引有关的的插值"></a>(b) 与索引有关的的插值</h4><p>method中的index和time选项可以使插值线性地依赖索引，即插值为索引的线性函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate(method=<span class="string">'index'</span>).plot()</span><br><span class="line"><span class="comment"># 可以看到跟上面的区别</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a2203d0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_131_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_t = pd.Series([<span class="number">0</span>,np.nan,<span class="number">10</span>],index=[pd.Timestamp(<span class="string">'2012-05-01'</span>),pd.Timestamp(<span class="string">'2012-05-07'</span>),pd.Timestamp(<span class="string">'2012-06-03'</span>)])</span><br><span class="line">s_t</span><br></pre></td></tr></table></figure>
+
+<pre><code>2012-05-01     0.0
+2012-05-07     NaN
+2012-06-03    10.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_t.interpolate().plot()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a43f3d0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_133_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_t.interpolate(method=<span class="string">'time'</span>).plot()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a4ba4d0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_134_1.png" alt="png"></p>
+<h3 id="2-高级插值方法"><a href="#2-高级插值方法" class="headerlink" title="2. 高级插值方法"></a>2. 高级插值方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ser = pd.Series(np.arange(<span class="number">1</span>,<span class="number">10.1</span>,<span class="number">.25</span>)**<span class="number">2</span> + np.random.randn(<span class="number">37</span>))</span><br><span class="line">missing = np.array([<span class="number">4</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">20</span>,<span class="number">29</span>])</span><br><span class="line">ser[missing] = np.nan</span><br><span class="line">methods = [<span class="string">'linear'</span>, <span class="string">'quadratic'</span>,<span class="string">'cubic'</span>]</span><br><span class="line">df = pd.DataFrame(&#123;m:ser.interpolate(method=m) <span class="keyword">for</span> m <span class="keyword">in</span> methods&#125;)</span><br><span class="line">df.plot()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a9a1510&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_136_1.png" alt="png"></p>
+<h3 id="3-interpolate中的限制参数"><a href="#3-interpolate中的限制参数" class="headerlink" title="3. interpolate中的限制参数"></a>3. interpolate中的限制参数</h3><h4 id="a-limit表示最多插入多少个"><a href="#a-limit表示最多插入多少个" class="headerlink" title="(a) limit表示最多插入多少个"></a>(a) limit表示最多插入多少个</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>,np.nan,np.nan,np.nan,<span class="number">5</span>])</span><br><span class="line">s.interpolate(limit=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1.0
+1    2.0
+2    3.0
+3    NaN
+4    5.0
+dtype: float64</code></pre><h4 id="b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><a href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向" class="headerlink" title="(b) limit_direction表示插值方向，可选forward,backward,both，默认前向"></a>(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series()</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments" class="blog-post-comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            visitor: true,
+            appId: 'q494NdCTA7S8AuwxLVHFxz41-MdYXbMMI',
+            appKey: 'dV8G37HkOGPbWVkPzlAUndh7',
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+            avatar: 'robohash'
+        })
+    </script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、缺失观测及其类型"><span class="toc-number">1.</span> <span class="toc-text">一、缺失观测及其类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-了解缺失信息"><span class="toc-number">1.1.</span> <span class="toc-text">1. 了解缺失信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-isna和notna方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">(a) isna和notna方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-查看缺失值所在行"><span class="toc-number">1.1.2.</span> <span class="toc-text">(b)查看缺失值所在行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-挑出所有非缺失值列"><span class="toc-number">1.1.3.</span> <span class="toc-text">(c) 挑出所有非缺失值列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种缺失符号"><span class="toc-number">1.2.</span> <span class="toc-text">2. 三种缺失符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-np-nan"><span class="toc-number">1.2.1.</span> <span class="toc-text">(a) np.nan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-None"><span class="toc-number">1.2.2.</span> <span class="toc-text">(b) None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-NaT"><span class="toc-number">1.2.3.</span> <span class="toc-text">(c) NaT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nullable类型与NA符号"><span class="toc-number">1.3.</span> <span class="toc-text">3.Nullable类型与NA符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-Nullable整型"><span class="toc-number">1.3.1.</span> <span class="toc-text">(a)Nullable整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Nullable布尔"><span class="toc-number">1.3.2.</span> <span class="toc-text">(b) Nullable布尔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-string类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">(c) string类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NA的特性"><span class="toc-number">1.4.</span> <span class="toc-text">4. NA的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-逻辑运算"><span class="toc-number">1.4.1.</span> <span class="toc-text">(a)逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-算术运算和比较运算"><span class="toc-number">1.4.2.</span> <span class="toc-text">(b)算术运算和比较运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-convert-dtypes方法"><span class="toc-number">1.5.</span> <span class="toc-text">5. convert_dtypes方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、缺失数据的运算与分组"><span class="toc-number">2.</span> <span class="toc-text">二、缺失数据的运算与分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-加号与乘号规则"><span class="toc-number">2.1.</span> <span class="toc-text">1.加号与乘号规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-groupby方法中的缺失值"><span class="toc-number">2.2.</span> <span class="toc-text">2. groupby方法中的缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、填充与剔除"><span class="toc-number">3.</span> <span class="toc-text">三、填充与剔除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-fillna方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. fillna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><span class="toc-number">3.1.1.</span> <span class="toc-text">(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-填充中的对齐特性"><span class="toc-number">3.1.2.</span> <span class="toc-text">(b) 填充中的对齐特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropna方法"><span class="toc-number">3.2.</span> <span class="toc-text">2. dropna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-axis参数"><span class="toc-number">3.2.1.</span> <span class="toc-text">(a)axis参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><span class="toc-number">3.2.2.</span> <span class="toc-text">b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-subset参数（在某一组列范围中搜索缺失值）"><span class="toc-number">3.2.3.</span> <span class="toc-text">(c) subset参数（在某一组列范围中搜索缺失值）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、插值（interpolation"><span class="toc-number">4.</span> <span class="toc-text">四、插值（interpolation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性插值"><span class="toc-number">4.1.</span> <span class="toc-text">1. 线性插值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（a-索引无关的线性插值"><span class="toc-number">4.1.1.</span> <span class="toc-text">（a)索引无关的线性插值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-与索引有关的的插值"><span class="toc-number">4.1.2.</span> <span class="toc-text">(b) 与索引有关的的插值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高级插值方法"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高级插值方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-interpolate中的限制参数"><span class="toc-number">4.3.</span> <span class="toc-text">3. interpolate中的限制参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-limit表示最多插入多少个"><span class="toc-number">4.3.1.</span> <span class="toc-text">(a) limit表示最多插入多少个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><span class="toc-number">4.3.2.</span> <span class="toc-text">(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&text=06_缺失数据"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&is_video=false&description=06_缺失数据"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=06_缺失数据&body=Check out this article: https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&title=06_缺失数据"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://github.com/gaojianjie412/gaojianjie412.github.io/2020/06/23/06-缺失数据/&name=06_缺失数据&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Robby
+    <a href="http://www.beian.miit.gov.cn/">豫ICP备19040301号</a> 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+        
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-148159204-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?dbb105d46eafbe9b2400ee1886ae06d2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
