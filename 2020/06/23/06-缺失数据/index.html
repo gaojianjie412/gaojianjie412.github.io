@@ -14,17 +14,17 @@
 <meta property="og:site_name" content="Robby">
 <meta property="og:description" content="[TOC] 12import numpy as npimport pandas as pd  12df = pd.read_csv(&apos;data/table_missing.csv&apos;)df.head()        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }   .dataframe tbo">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_127_2.png">
-<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_129_1.png">
-<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_131_1.png">
-<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_133_1.png">
-<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_134_1.png">
-<meta property="og:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_136_1.png">
-<meta property="og:updated_time" content="2020-06-23T15:00:26.291Z">
+<meta property="og:image" content="http://qiniu.robbyml.com/output_127_2.png">
+<meta property="og:image" content="http://qiniu.robbyml.com/output_129_1.png">
+<meta property="og:image" content="http://qiniu.robbyml.com/output_131_1.png">
+<meta property="og:image" content="http://qiniu.robbyml.com/output_133_1.png">
+<meta property="og:image" content="http://qiniu.robbyml.com/output_134_1.png">
+<meta property="og:image" content="http://qiniu.robbyml.com/output_136_1.png">
+<meta property="og:updated_time" content="2020-06-24T03:34:51.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="06_缺失数据">
 <meta name="twitter:description" content="[TOC] 12import numpy as npimport pandas as pd  12df = pd.read_csv(&apos;data/table_missing.csv&apos;)df.head()        .dataframe tbody tr th:only-of-type {         vertical-align: middle;     }   .dataframe tbo">
-<meta name="twitter:image" content="https://github.com/gaojianjie412/gaojianjie412.github.io/2020/Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_127_2.png">
+<meta name="twitter:image" content="http://qiniu.robbyml.com/output_127_2.png">
     
     
         
@@ -112,7 +112,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、缺失观测及其类型"><span class="toc-number">1.</span> <span class="toc-text">一、缺失观测及其类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-了解缺失信息"><span class="toc-number">1.1.</span> <span class="toc-text">1. 了解缺失信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-isna和notna方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">(a) isna和notna方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-查看缺失值所在行"><span class="toc-number">1.1.2.</span> <span class="toc-text">(b)查看缺失值所在行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-挑出所有非缺失值列"><span class="toc-number">1.1.3.</span> <span class="toc-text">(c) 挑出所有非缺失值列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种缺失符号"><span class="toc-number">1.2.</span> <span class="toc-text">2. 三种缺失符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-np-nan"><span class="toc-number">1.2.1.</span> <span class="toc-text">(a) np.nan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-None"><span class="toc-number">1.2.2.</span> <span class="toc-text">(b) None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-NaT"><span class="toc-number">1.2.3.</span> <span class="toc-text">(c) NaT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nullable类型与NA符号"><span class="toc-number">1.3.</span> <span class="toc-text">3.Nullable类型与NA符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-Nullable整型"><span class="toc-number">1.3.1.</span> <span class="toc-text">(a)Nullable整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Nullable布尔"><span class="toc-number">1.3.2.</span> <span class="toc-text">(b) Nullable布尔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-string类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">(c) string类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NA的特性"><span class="toc-number">1.4.</span> <span class="toc-text">4. NA的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-逻辑运算"><span class="toc-number">1.4.1.</span> <span class="toc-text">(a)逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-算术运算和比较运算"><span class="toc-number">1.4.2.</span> <span class="toc-text">(b)算术运算和比较运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-convert-dtypes方法"><span class="toc-number">1.5.</span> <span class="toc-text">5. convert_dtypes方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、缺失数据的运算与分组"><span class="toc-number">2.</span> <span class="toc-text">二、缺失数据的运算与分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-加号与乘号规则"><span class="toc-number">2.1.</span> <span class="toc-text">1.加号与乘号规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-groupby方法中的缺失值"><span class="toc-number">2.2.</span> <span class="toc-text">2. groupby方法中的缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、填充与剔除"><span class="toc-number">3.</span> <span class="toc-text">三、填充与剔除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-fillna方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. fillna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><span class="toc-number">3.1.1.</span> <span class="toc-text">(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-填充中的对齐特性"><span class="toc-number">3.1.2.</span> <span class="toc-text">(b) 填充中的对齐特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropna方法"><span class="toc-number">3.2.</span> <span class="toc-text">2. dropna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-axis参数"><span class="toc-number">3.2.1.</span> <span class="toc-text">(a)axis参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><span class="toc-number">3.2.2.</span> <span class="toc-text">b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-subset参数（在某一组列范围中搜索缺失值）"><span class="toc-number">3.2.3.</span> <span class="toc-text">(c) subset参数（在某一组列范围中搜索缺失值）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、插值（interpolation"><span class="toc-number">4.</span> <span class="toc-text">四、插值（interpolation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性插值"><span class="toc-number">4.1.</span> <span class="toc-text">1. 线性插值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（a-索引无关的线性插值"><span class="toc-number">4.1.1.</span> <span class="toc-text">（a)索引无关的线性插值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-与索引有关的的插值"><span class="toc-number">4.1.2.</span> <span class="toc-text">(b) 与索引有关的的插值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高级插值方法"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高级插值方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-interpolate中的限制参数"><span class="toc-number">4.3.</span> <span class="toc-text">3. interpolate中的限制参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-limit表示最多插入多少个"><span class="toc-number">4.3.1.</span> <span class="toc-text">(a) limit表示最多插入多少个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><span class="toc-number">4.3.2.</span> <span class="toc-text">(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、缺失观测及其类型"><span class="toc-number">1.</span> <span class="toc-text">一、缺失观测及其类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-了解缺失信息"><span class="toc-number">1.1.</span> <span class="toc-text">1. 了解缺失信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-isna和notna方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">(a) isna和notna方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-查看缺失值所在行"><span class="toc-number">1.1.2.</span> <span class="toc-text">(b)查看缺失值所在行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-挑出所有非缺失值列"><span class="toc-number">1.1.3.</span> <span class="toc-text">(c) 挑出所有非缺失值列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种缺失符号"><span class="toc-number">1.2.</span> <span class="toc-text">2. 三种缺失符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-np-nan"><span class="toc-number">1.2.1.</span> <span class="toc-text">(a) np.nan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-None"><span class="toc-number">1.2.2.</span> <span class="toc-text">(b) None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-NaT"><span class="toc-number">1.2.3.</span> <span class="toc-text">(c) NaT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nullable类型与NA符号"><span class="toc-number">1.3.</span> <span class="toc-text">3.Nullable类型与NA符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-Nullable整型"><span class="toc-number">1.3.1.</span> <span class="toc-text">(a)Nullable整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Nullable布尔"><span class="toc-number">1.3.2.</span> <span class="toc-text">(b) Nullable布尔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-string类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">(c) string类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NA的特性"><span class="toc-number">1.4.</span> <span class="toc-text">4. NA的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-逻辑运算"><span class="toc-number">1.4.1.</span> <span class="toc-text">(a)逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-算术运算和比较运算"><span class="toc-number">1.4.2.</span> <span class="toc-text">(b)算术运算和比较运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-convert-dtypes方法"><span class="toc-number">1.5.</span> <span class="toc-text">5. convert_dtypes方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、缺失数据的运算与分组"><span class="toc-number">2.</span> <span class="toc-text">二、缺失数据的运算与分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-加号与乘号规则"><span class="toc-number">2.1.</span> <span class="toc-text">1.加号与乘号规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-groupby方法中的缺失值"><span class="toc-number">2.2.</span> <span class="toc-text">2. groupby方法中的缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、填充与剔除"><span class="toc-number">3.</span> <span class="toc-text">三、填充与剔除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-fillna方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. fillna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><span class="toc-number">3.1.1.</span> <span class="toc-text">(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-填充中的对齐特性"><span class="toc-number">3.1.2.</span> <span class="toc-text">(b) 填充中的对齐特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropna方法"><span class="toc-number">3.2.</span> <span class="toc-text">2. dropna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-axis参数"><span class="toc-number">3.2.1.</span> <span class="toc-text">(a)axis参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><span class="toc-number">3.2.2.</span> <span class="toc-text">b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-subset参数（在某一组列范围中搜索缺失值）"><span class="toc-number">3.2.3.</span> <span class="toc-text">(c) subset参数（在某一组列范围中搜索缺失值）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、插值（interpolation"><span class="toc-number">4.</span> <span class="toc-text">四、插值（interpolation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性插值"><span class="toc-number">4.1.</span> <span class="toc-text">1. 线性插值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（a-索引无关的线性插值"><span class="toc-number">4.1.1.</span> <span class="toc-text">（a)索引无关的线性插值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-与索引有关的的插值"><span class="toc-number">4.1.2.</span> <span class="toc-text">(b) 与索引有关的的插值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高级插值方法"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高级插值方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-interpolate中的限制参数"><span class="toc-number">4.3.</span> <span class="toc-text">3. interpolate中的限制参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-limit表示最多插入多少个"><span class="toc-number">4.3.1.</span> <span class="toc-text">(a) limit表示最多插入多少个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><span class="toc-number">4.3.2.</span> <span class="toc-text">(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-limit-area表示插值区域，可选inside-outside-默认None"><span class="toc-number">4.3.3.</span> <span class="toc-text">(c) limit_area表示插值区域，可选inside,outside,默认None</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、问题与练习"><span class="toc-number">5.</span> <span class="toc-text">五、问题与练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-问题"><span class="toc-number">5.0.1.</span> <span class="toc-text">1.问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-练习"><span class="toc-number">5.1.</span> <span class="toc-text">2. 练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#b"><span class="toc-number">5.1.1.</span> <span class="toc-text">(b)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#【练习二】"><span class="toc-number">5.1.2.</span> <span class="toc-text">【练习二】</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -1479,7 +1479,7 @@ or from the matplotlib source distribution
 
 
 
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf89388490&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_127_2.png" alt="png"></p>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf89388490&gt;</code></pre><p><img src="http://qiniu.robbyml.com/output_127_2.png" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.index = np.sort(np.random.randint(<span class="number">50</span>,<span class="number">300</span>,<span class="number">8</span>))</span><br><span class="line">s.interpolate()</span><br><span class="line"><span class="comment"># 值不变</span></span><br></pre></td></tr></table></figure>
 
 <pre><code>83      1.0
@@ -1492,11 +1492,11 @@ or from the matplotlib source distribution
 288    28.0
 dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate().plot()</span><br><span class="line"><span class="comment"># 后面三个点不是线性的（如果几乎为现象函数，请重新运行上面的一个代码块，这是随机性导致的）</span></span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a173fd0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_129_1.png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a173fd0&gt;</code></pre><p><img src="http://qiniu.robbyml.com/output_129_1.png" alt></p>
 <h4 id="b-与索引有关的的插值"><a href="#b-与索引有关的的插值" class="headerlink" title="(b) 与索引有关的的插值"></a>(b) 与索引有关的的插值</h4><p>method中的index和time选项可以使插值线性地依赖索引，即插值为索引的线性函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate(method=<span class="string">'index'</span>).plot()</span><br><span class="line"><span class="comment"># 可以看到跟上面的区别</span></span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a2203d0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_131_1.png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a2203d0&gt;</code></pre><p><img src="http://qiniu.robbyml.com/output_131_1.png" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s_t = pd.Series([<span class="number">0</span>,np.nan,<span class="number">10</span>],index=[pd.Timestamp(<span class="string">'2012-05-01'</span>),pd.Timestamp(<span class="string">'2012-05-07'</span>),pd.Timestamp(<span class="string">'2012-06-03'</span>)])</span><br><span class="line">s_t</span><br></pre></td></tr></table></figure>
 
 <pre><code>2012-05-01     0.0
@@ -1504,13 +1504,13 @@ dtype: float64</code></pre><figure class="highlight python"><table><tr><td class
 2012-06-03    10.0
 dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_t.interpolate().plot()</span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a43f3d0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_133_1.png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a43f3d0&gt;</code></pre><p><img src="http://qiniu.robbyml.com/output_133_1.png" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s_t.interpolate(method=<span class="string">'time'</span>).plot()</span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a4ba4d0&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_134_1.png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a4ba4d0&gt;</code></pre><p><img src="http://qiniu.robbyml.com/output_134_1.png" alt></p>
 <h3 id="2-高级插值方法"><a href="#2-高级插值方法" class="headerlink" title="2. 高级插值方法"></a>2. 高级插值方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ser = pd.Series(np.arange(<span class="number">1</span>,<span class="number">10.1</span>,<span class="number">.25</span>)**<span class="number">2</span> + np.random.randn(<span class="number">37</span>))</span><br><span class="line">missing = np.array([<span class="number">4</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">20</span>,<span class="number">29</span>])</span><br><span class="line">ser[missing] = np.nan</span><br><span class="line">methods = [<span class="string">'linear'</span>, <span class="string">'quadratic'</span>,<span class="string">'cubic'</span>]</span><br><span class="line">df = pd.DataFrame(&#123;m:ser.interpolate(method=m) <span class="keyword">for</span> m <span class="keyword">in</span> methods&#125;)</span><br><span class="line">df.plot()</span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a9a1510&gt;</code></pre><p><img src="../../../Downloads/06_%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/output_136_1.png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbf8a9a1510&gt;</code></pre><p><img src="http://qiniu.robbyml.com/output_136_1.png" alt></p>
 <h3 id="3-interpolate中的限制参数"><a href="#3-interpolate中的限制参数" class="headerlink" title="3. interpolate中的限制参数"></a>3. interpolate中的限制参数</h3><h4 id="a-limit表示最多插入多少个"><a href="#a-limit表示最多插入多少个" class="headerlink" title="(a) limit表示最多插入多少个"></a>(a) limit表示最多插入多少个</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>,np.nan,np.nan,np.nan,<span class="number">5</span>])</span><br><span class="line">s.interpolate(limit=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 <pre><code>0    1.0
@@ -1518,7 +1518,725 @@ dtype: float64</code></pre><figure class="highlight python"><table><tr><td class
 2    3.0
 3    NaN
 4    5.0
-dtype: float64</code></pre><h4 id="b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><a href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向" class="headerlink" title="(b) limit_direction表示插值方向，可选forward,backward,both，默认前向"></a>(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series()</span><br></pre></td></tr></table></figure>
+dtype: float64</code></pre><h4 id="b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><a href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向" class="headerlink" title="(b) limit_direction表示插值方向，可选forward,backward,both，默认前向"></a>(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([np.nan,np.nan,<span class="number">1</span>,np.nan,np.nan,np.nan,<span class="number">5</span>,np.nan,np.nan,])</span><br><span class="line">s.interpolate(limit_direction=<span class="string">'backward'</span>)</span><br><span class="line"><span class="comment"># 最后两个是后面没有可以用于插值的条目</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1.0
+1    1.0
+2    1.0
+3    2.0
+4    3.0
+5    4.0
+6    5.0
+7    NaN
+8    NaN
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.interpolate()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    NaN
+1    NaN
+2    1.0
+3    2.0
+4    3.0
+5    4.0
+6    5.0
+7    5.0
+8    5.0
+dtype: float64</code></pre><h4 id="c-limit-area表示插值区域，可选inside-outside-默认None"><a href="#c-limit-area表示插值区域，可选inside-outside-默认None" class="headerlink" title="(c) limit_area表示插值区域，可选inside,outside,默认None"></a>(c) limit_area表示插值区域，可选inside,outside,默认None</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([np.nan,np.nan,<span class="number">1</span>,np.nan,np.nan,np.nan,<span class="number">5</span>,np.nan,np.nan,])</span><br><span class="line">s.interpolate(limit_area=<span class="string">'inside'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    NaN
+1    NaN
+2    1.0
+3    2.0
+4    3.0
+5    4.0
+6    5.0
+7    NaN
+8    NaN
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([np.nan,np.nan,<span class="number">1</span>,np.nan,np.nan,np.nan,<span class="number">5</span>,np.nan,np.nan,])</span><br><span class="line">s.interpolate(limit_area=<span class="string">'outside'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    NaN
+1    NaN
+2    1.0
+3    NaN
+4    NaN
+5    NaN
+6    5.0
+7    5.0
+8    5.0
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,np.nan,np.nan,<span class="number">6</span>,np.nan])</span><br><span class="line">s1.interpolate(limit_area=<span class="string">'outside'</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0    1.0
+1    2.0
+2    3.0
+3    NaN
+4    NaN
+5    6.0
+6    6.0
+dtype: float64</code></pre><h2 id="五、问题与练习"><a href="#五、问题与练习" class="headerlink" title="五、问题与练习"></a>五、问题与练习</h2><h4 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h4><p>【问题一】 如何删除缺失值占比超过25%的列？</p>
+<p>【问题二】 什么是Nullable类型？请谈谈为什么要引入这个设计？</p>
+<p>【问题三】 对于一份有缺失值的数据，可以采取哪些策略或方法深化对它的了解？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/table_missing.csv'</span>).convert_dtypes()</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>&lt;NA&gt;</td>
+      <td>M</td>
+      <td>street_1</td>
+      <td>173</td>
+      <td>&lt;NA&gt;</td>
+      <td>34.0</td>
+      <td>A+</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>&lt;NA&gt;</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>192</td>
+      <td>&lt;NA&gt;</td>
+      <td>32.5</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>1103</td>
+      <td>M</td>
+      <td>street_2</td>
+      <td>186</td>
+      <td>&lt;NA&gt;</td>
+      <td>87.2</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>S_1</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>167</td>
+      <td>81</td>
+      <td>80.4</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>1105</td>
+      <td>&lt;NA&gt;</td>
+      <td>street_4</td>
+      <td>159</td>
+      <td>64</td>
+      <td>84.8</td>
+      <td>A-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">miss_per = df.isna().sum()/len(df) </span><br><span class="line">miss_per</span><br></pre></td></tr></table></figure>
+
+<pre><code>School     0.000000
+Class      0.114286
+ID         0.171429
+Gender     0.200000
+Address    0.000000
+Height     0.000000
+Weight     0.371429
+Math       0.142857
+Physics    0.114286
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miss_per[miss_per&gt;<span class="number">.25</span>].index</span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&apos;Weight&apos;], dtype=&apos;object&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">drop_col</span><span class="params">(df,cutoff)</span>:</span></span><br><span class="line">    cutoff = <span class="number">.25</span></span><br><span class="line">    miss_per = df.isna().sum()/len(df) </span><br><span class="line">    col_name = miss_per[miss_per&gt;=cutoff].index</span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> col_name:</span><br><span class="line">        <span class="keyword">del</span> df[col]</span><br><span class="line">    <span class="keyword">return</span> df</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_drop_miss = drop_col(df,<span class="number">.25</span>)</span><br><span class="line">df_drop_miss.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>School</th>
+      <th>Class</th>
+      <th>ID</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Height</th>
+      <th>Math</th>
+      <th>Physics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>&lt;NA&gt;</td>
+      <td>M</td>
+      <td>street_1</td>
+      <td>173</td>
+      <td>34.0</td>
+      <td>A+</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>&lt;NA&gt;</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>192</td>
+      <td>32.5</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>1103</td>
+      <td>M</td>
+      <td>street_2</td>
+      <td>186</td>
+      <td>87.2</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>S_1</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>F</td>
+      <td>street_2</td>
+      <td>167</td>
+      <td>80.4</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>S_1</td>
+      <td>C_1</td>
+      <td>1105</td>
+      <td>&lt;NA&gt;</td>
+      <td>street_4</td>
+      <td>159</td>
+      <td>84.8</td>
+      <td>A-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<p>新的数据类型，为了避免以前的混乱局面，统一数据类型，且不改变原来的数据类型，</p>
+<p>info()/isna()/notna()</p>
+<h3 id="2-练习"><a href="#2-练习" class="headerlink" title="2. 练习"></a>2. 练习</h3><p>【练习一】现有一份虚拟数据集，列类型分别为string/浮点/整型，请解决如下问题：</p>
+<p>（a）请以列类型读入数据，并选出C为缺失值的行。</p>
+<p>（b）现需要将A中的部分单元转为缺失值，单元格中的最小转换概率为25%，且概率大小与所在行B列单元的值成正比。¶</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/Missing_data_one.csv'</span>).convert_dtypes()</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>not_NaN</td>
+      <td>0.922</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>not_NaN</td>
+      <td>0.700</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>not_NaN</td>
+      <td>0.503</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>not_NaN</td>
+      <td>0.938</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>not_NaN</td>
+      <td>0.952</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.dtypes</span><br></pre></td></tr></table></figure>
+
+<pre><code>A     string
+B    float64
+C      Int64
+dtype: object</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'C'</span>].isna()]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>not_NaN</td>
+      <td>0.700</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>not_NaN</td>
+      <td>0.972</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>not_NaN</td>
+      <td>0.736</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>not_NaN</td>
+      <td>0.684</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>not_NaN</td>
+      <td>0.913</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="b"><a href="#b" class="headerlink" title="(b)"></a>(b)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">min_b = df[<span class="string">'B'</span>].min()</span><br><span class="line">df[<span class="string">'A'</span>] = pd.Series(list(zip(df[<span class="string">'A'</span>].values</span><br><span class="line">                    ,df[<span class="string">'B'</span>].values))).apply(<span class="keyword">lambda</span> x:x[<span class="number">0</span>] <span class="keyword">if</span> np.random.rand()&gt;<span class="number">0.25</span>*x[<span class="number">1</span>]/min_b <span class="keyword">else</span> np.nan)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>not_NaN</td>
+      <td>0.922</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>not_NaN</td>
+      <td>0.700</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>not_NaN</td>
+      <td>0.503</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>0.938</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>0.952</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="【练习二】"><a href="#【练习二】" class="headerlink" title="【练习二】"></a>【练习二】</h4><p>现有一份缺失的数据集，记录了36个人来自的地区、身高、体重、年龄和工资，请解决如下问题：</p>
+<p>（a）统计各列缺失的比例并选出在后三列中至少有两个非缺失值的行。</p>
+<p>（b）请结合身高列和地区列中的数据，对体重进行合理插值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/Missing_data_two.csv'</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>编号</th>
+      <th>地区</th>
+      <th>身高</th>
+      <th>体重</th>
+      <th>年龄</th>
+      <th>工资</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>A</td>
+      <td>157.50</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>15905.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>B</td>
+      <td>202.00</td>
+      <td>91.80</td>
+      <td>25.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>C</td>
+      <td>169.09</td>
+      <td>62.18</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>A</td>
+      <td>166.61</td>
+      <td>59.95</td>
+      <td>77.0</td>
+      <td>5434.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>B</td>
+      <td>185.19</td>
+      <td>NaN</td>
+      <td>62.0</td>
+      <td>4242.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.isna().sum()/len(df)</span><br></pre></td></tr></table></figure>
+
+<pre><code>编号    0.000000
+地区    0.000000
+身高    0.000000
+体重    0.222222
+年龄    0.250000
+工资    0.222222
+dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df_not_na = df[df[df.columns[<span class="number">-3</span>:]].isna().sum(<span class="number">1</span>)&lt;=<span class="number">1</span>]</span><br><span class="line"><span class="comment"># 后面三列每行最多有一个缺失值的行</span></span><br><span class="line">df_not_na.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>编号</th>
+      <th>地区</th>
+      <th>身高</th>
+      <th>体重</th>
+      <th>年龄</th>
+      <th>工资</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>A</td>
+      <td>157.50</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>15905.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>B</td>
+      <td>202.00</td>
+      <td>91.80</td>
+      <td>25.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>A</td>
+      <td>166.61</td>
+      <td>59.95</td>
+      <td>77.0</td>
+      <td>5434.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>B</td>
+      <td>185.19</td>
+      <td>NaN</td>
+      <td>62.0</td>
+      <td>4242.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>A</td>
+      <td>187.13</td>
+      <td>78.42</td>
+      <td>55.0</td>
+      <td>13959.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df_method_1 = df.copy()</span><br><span class="line"><span class="keyword">for</span> name,group <span class="keyword">in</span> df_method_1.groupby(<span class="string">'地区'</span>):</span><br><span class="line">    df_method_1.loc[group.index,<span class="string">'体重'</span>] = group[[<span class="string">'身高'</span>,<span class="string">'体重'</span>]].sort_values(by=<span class="string">'身高'</span>).interpolate()[<span class="string">'体重'</span>]</span><br><span class="line">df_method_1[<span class="string">'体重'</span>] = df_method_1[<span class="string">'体重'</span>].round(decimals=<span class="number">2</span>)</span><br><span class="line">df_method_1.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>编号</th>
+      <th>地区</th>
+      <th>身高</th>
+      <th>体重</th>
+      <th>年龄</th>
+      <th>工资</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>A</td>
+      <td>157.50</td>
+      <td>53.58</td>
+      <td>47.0</td>
+      <td>15905.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>B</td>
+      <td>202.00</td>
+      <td>91.80</td>
+      <td>25.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>C</td>
+      <td>169.09</td>
+      <td>62.18</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>A</td>
+      <td>166.61</td>
+      <td>59.95</td>
+      <td>77.0</td>
+      <td>5434.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>B</td>
+      <td>185.19</td>
+      <td>81.75</td>
+      <td>62.0</td>
+      <td>4242.0</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
   </div>
 </article>
 
@@ -1562,7 +2280,7 @@ dtype: float64</code></pre><h4 id="b-limit-direction表示插值方向，可选f
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、缺失观测及其类型"><span class="toc-number">1.</span> <span class="toc-text">一、缺失观测及其类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-了解缺失信息"><span class="toc-number">1.1.</span> <span class="toc-text">1. 了解缺失信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-isna和notna方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">(a) isna和notna方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-查看缺失值所在行"><span class="toc-number">1.1.2.</span> <span class="toc-text">(b)查看缺失值所在行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-挑出所有非缺失值列"><span class="toc-number">1.1.3.</span> <span class="toc-text">(c) 挑出所有非缺失值列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种缺失符号"><span class="toc-number">1.2.</span> <span class="toc-text">2. 三种缺失符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-np-nan"><span class="toc-number">1.2.1.</span> <span class="toc-text">(a) np.nan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-None"><span class="toc-number">1.2.2.</span> <span class="toc-text">(b) None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-NaT"><span class="toc-number">1.2.3.</span> <span class="toc-text">(c) NaT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nullable类型与NA符号"><span class="toc-number">1.3.</span> <span class="toc-text">3.Nullable类型与NA符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-Nullable整型"><span class="toc-number">1.3.1.</span> <span class="toc-text">(a)Nullable整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Nullable布尔"><span class="toc-number">1.3.2.</span> <span class="toc-text">(b) Nullable布尔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-string类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">(c) string类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NA的特性"><span class="toc-number">1.4.</span> <span class="toc-text">4. NA的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-逻辑运算"><span class="toc-number">1.4.1.</span> <span class="toc-text">(a)逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-算术运算和比较运算"><span class="toc-number">1.4.2.</span> <span class="toc-text">(b)算术运算和比较运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-convert-dtypes方法"><span class="toc-number">1.5.</span> <span class="toc-text">5. convert_dtypes方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、缺失数据的运算与分组"><span class="toc-number">2.</span> <span class="toc-text">二、缺失数据的运算与分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-加号与乘号规则"><span class="toc-number">2.1.</span> <span class="toc-text">1.加号与乘号规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-groupby方法中的缺失值"><span class="toc-number">2.2.</span> <span class="toc-text">2. groupby方法中的缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、填充与剔除"><span class="toc-number">3.</span> <span class="toc-text">三、填充与剔除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-fillna方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. fillna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><span class="toc-number">3.1.1.</span> <span class="toc-text">(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-填充中的对齐特性"><span class="toc-number">3.1.2.</span> <span class="toc-text">(b) 填充中的对齐特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropna方法"><span class="toc-number">3.2.</span> <span class="toc-text">2. dropna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-axis参数"><span class="toc-number">3.2.1.</span> <span class="toc-text">(a)axis参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><span class="toc-number">3.2.2.</span> <span class="toc-text">b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-subset参数（在某一组列范围中搜索缺失值）"><span class="toc-number">3.2.3.</span> <span class="toc-text">(c) subset参数（在某一组列范围中搜索缺失值）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、插值（interpolation"><span class="toc-number">4.</span> <span class="toc-text">四、插值（interpolation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性插值"><span class="toc-number">4.1.</span> <span class="toc-text">1. 线性插值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（a-索引无关的线性插值"><span class="toc-number">4.1.1.</span> <span class="toc-text">（a)索引无关的线性插值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-与索引有关的的插值"><span class="toc-number">4.1.2.</span> <span class="toc-text">(b) 与索引有关的的插值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高级插值方法"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高级插值方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-interpolate中的限制参数"><span class="toc-number">4.3.</span> <span class="toc-text">3. interpolate中的限制参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-limit表示最多插入多少个"><span class="toc-number">4.3.1.</span> <span class="toc-text">(a) limit表示最多插入多少个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><span class="toc-number">4.3.2.</span> <span class="toc-text">(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、缺失观测及其类型"><span class="toc-number">1.</span> <span class="toc-text">一、缺失观测及其类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-了解缺失信息"><span class="toc-number">1.1.</span> <span class="toc-text">1. 了解缺失信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-isna和notna方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">(a) isna和notna方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-查看缺失值所在行"><span class="toc-number">1.1.2.</span> <span class="toc-text">(b)查看缺失值所在行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-挑出所有非缺失值列"><span class="toc-number">1.1.3.</span> <span class="toc-text">(c) 挑出所有非缺失值列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种缺失符号"><span class="toc-number">1.2.</span> <span class="toc-text">2. 三种缺失符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-np-nan"><span class="toc-number">1.2.1.</span> <span class="toc-text">(a) np.nan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-None"><span class="toc-number">1.2.2.</span> <span class="toc-text">(b) None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-NaT"><span class="toc-number">1.2.3.</span> <span class="toc-text">(c) NaT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Nullable类型与NA符号"><span class="toc-number">1.3.</span> <span class="toc-text">3.Nullable类型与NA符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-Nullable整型"><span class="toc-number">1.3.1.</span> <span class="toc-text">(a)Nullable整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Nullable布尔"><span class="toc-number">1.3.2.</span> <span class="toc-text">(b) Nullable布尔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-string类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">(c) string类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-NA的特性"><span class="toc-number">1.4.</span> <span class="toc-text">4. NA的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-逻辑运算"><span class="toc-number">1.4.1.</span> <span class="toc-text">(a)逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-算术运算和比较运算"><span class="toc-number">1.4.2.</span> <span class="toc-text">(b)算术运算和比较运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-convert-dtypes方法"><span class="toc-number">1.5.</span> <span class="toc-text">5. convert_dtypes方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、缺失数据的运算与分组"><span class="toc-number">2.</span> <span class="toc-text">二、缺失数据的运算与分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-加号与乘号规则"><span class="toc-number">2.1.</span> <span class="toc-text">1.加号与乘号规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-groupby方法中的缺失值"><span class="toc-number">2.2.</span> <span class="toc-text">2. groupby方法中的缺失值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、填充与剔除"><span class="toc-number">3.</span> <span class="toc-text">三、填充与剔除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-fillna方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. fillna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-值填充与前后向填充（分别与ffill方法和bfill方法等价）"><span class="toc-number">3.1.1.</span> <span class="toc-text">(a) 值填充与前后向填充（分别与ffill方法和bfill方法等价）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-填充中的对齐特性"><span class="toc-number">3.1.2.</span> <span class="toc-text">(b) 填充中的对齐特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropna方法"><span class="toc-number">3.2.</span> <span class="toc-text">2. dropna方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-axis参数"><span class="toc-number">3.2.1.</span> <span class="toc-text">(a)axis参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）"><span class="toc-number">3.2.2.</span> <span class="toc-text">b.how参数（可以选all或any，表示全为缺失值去除和存在缺失去除）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-subset参数（在某一组列范围中搜索缺失值）"><span class="toc-number">3.2.3.</span> <span class="toc-text">(c) subset参数（在某一组列范围中搜索缺失值）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、插值（interpolation"><span class="toc-number">4.</span> <span class="toc-text">四、插值（interpolation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-线性插值"><span class="toc-number">4.1.</span> <span class="toc-text">1. 线性插值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（a-索引无关的线性插值"><span class="toc-number">4.1.1.</span> <span class="toc-text">（a)索引无关的线性插值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-与索引有关的的插值"><span class="toc-number">4.1.2.</span> <span class="toc-text">(b) 与索引有关的的插值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高级插值方法"><span class="toc-number">4.2.</span> <span class="toc-text">2. 高级插值方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-interpolate中的限制参数"><span class="toc-number">4.3.</span> <span class="toc-text">3. interpolate中的限制参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-limit表示最多插入多少个"><span class="toc-number">4.3.1.</span> <span class="toc-text">(a) limit表示最多插入多少个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-limit-direction表示插值方向，可选forward-backward-both，默认前向"><span class="toc-number">4.3.2.</span> <span class="toc-text">(b) limit_direction表示插值方向，可选forward,backward,both，默认前向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-limit-area表示插值区域，可选inside-outside-默认None"><span class="toc-number">4.3.3.</span> <span class="toc-text">(c) limit_area表示插值区域，可选inside,outside,默认None</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、问题与练习"><span class="toc-number">5.</span> <span class="toc-text">五、问题与练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-问题"><span class="toc-number">5.0.1.</span> <span class="toc-text">1.问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-练习"><span class="toc-number">5.1.</span> <span class="toc-text">2. 练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#b"><span class="toc-number">5.1.1.</span> <span class="toc-text">(b)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#【练习二】"><span class="toc-number">5.1.2.</span> <span class="toc-text">【练习二】</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
